@@ -2,22 +2,37 @@ import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import { motion } from "framer-motion";
+import registerUser from "../../../../utils/registerUser";
 
 function AuthCard() {
   const [isNew, setIsNew] = useState(false);
   const [hovered, setHoverd] = useState(false);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const formData = e.target;
+    console.log(formData)
+    if (isNew) {
+      registerUser({
+        username: formData.username.value,
+        email: formData.email.value,
+        password: formData.password.value,
+      });
+    }
+  }
 
   return (
     <div className="relative">
       <motion.div
         initial={{ y: "0%" }}
         animate={{ y: hovered ? "-80%" : "0%" }}
-        transition={{type: "spring", damping: 20}}
+        transition={{ type: "spring", damping: 20 }}
         className="absolute right-0 top-0 -z-10"
       >
         <img width={100} src="/gifs/cat.gif" alt="" />
       </motion.div>
       <form
+        onSubmit={handleSubmit}
         onPointerEnter={() => setHoverd(true)}
         onPointerLeave={() => setHoverd(false)}
         spellCheck={false}
@@ -25,6 +40,7 @@ function AuthCard() {
       >
         {isNew ? <SignupForm></SignupForm> : <LoginForm></LoginForm>}
         <button
+          type="button"
           onClick={() => {
             setIsNew((prev) => !prev);
           }}

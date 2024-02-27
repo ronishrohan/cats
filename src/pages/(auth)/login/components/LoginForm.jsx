@@ -6,8 +6,8 @@ function LoginForm() {
   return (
     <div className="flex flex-col gap-4 w-full">
       <h1 className="m-0 font-black">Login</h1>
-      <Input placeholder="username" type="text"></Input>
-      <Input placeholder="password" type="password"></Input>
+      <Input placeholder="username" name="username" type="text"></Input>
+      <Input placeholder="password" name="password" type="password"></Input>
       <Button>Login</Button>
     </div>
   );

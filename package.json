@@ -13,6 +13,7 @@
     "@fontsource-variable/grandstander": "^5.0.19",
     "@fontsource/nunito": "^5.0.16",
     "autoprefixer": "^10.4.17",
+    "axios": "^1.6.7",
     "framer-motion": "^11.0.6",
     "normalize.css": "^8.0.1",
     "postcss": "^8.4.35",

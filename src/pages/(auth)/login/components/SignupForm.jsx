@@ -6,10 +6,10 @@ function SignupForm() {
   return (
     <div className="flex flex-col gap-4 w-full">
       <h1 className="m-0 font-black">Sign up</h1>
-      <Input placeholder="your name" type="text"></Input>
-      <Input placeholder="username" type="text"></Input>
-      <Input placeholder="password" type="password"></Input>
-      <Input placeholder="confirm password" type="password"></Input>
+      <Input name="email" placeholder="email" type="text"></Input>
+      <Input name="username" placeholder="username" type="text"></Input>
+      <Input name="password" placeholder="password" type="password"></Input>
+      <Input name="confirm" placeholder="confirm password" type="password"></Input>
       <Button>Sign up</Button>
     </div>
   );
