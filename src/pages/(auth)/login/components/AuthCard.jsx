@@ -4,26 +4,30 @@ import SignupForm from "./SignupForm";
 import { motion } from "framer-motion";
 import registerUser from "../../../../utils/registerUser";
 import loginUser from "../../../../utils/loginUser";
+import { useNavigate } from "react-router-dom";
 
 function AuthCard() {
+  const navigate = useNavigate();
   const [isNew, setIsNew] = useState(false);
   const [hovered, setHoverd] = useState(false);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const formData = e.target;
-    console.log(formData)
+    console.log(formData);
     if (isNew) {
       registerUser({
         username: formData.username.value,
         password: formData.password.value,
       });
-    }
-    else{
-      loginUser({
+    } else {
+      const res = await loginUser({
         username: formData.username.value,
-        password: formData.password.value
-      })
+        password: formData.password.value,
+      });
+      if(res.status == 201 || res.status == 200){
+        navigate("/")
+      }
     }
   }
 

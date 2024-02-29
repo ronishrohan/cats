@@ -1,10 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import Header from "../components/Header";
 
-function Home() {
+function page() {
   return (
-    <div>nothing here for now go to <Link to="/login" >login</Link></div>
-  )
+    <div>
+      Home
+    </div>
+  );
 }
 
-export default Home
+export default page;

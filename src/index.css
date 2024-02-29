@@ -10,4 +10,10 @@ body,html,#root{
 body{
     background-color: #fff8ee;
     font-family: "Grandstander Variable";
+    font-display: swap;
+    
+}
+
+.test{
+    background-color: #fce7d3;
 }

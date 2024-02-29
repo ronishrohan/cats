@@ -10,6 +10,7 @@ export default {
         "primary" : {
           200 : "#D7AF84",
           300 : "#E1C3A3",
+          400 : "#fce7d3",
           900 : "#fff8ee"
         },
         "secondary" : "#ffcac4",
