@@ -16,17 +16,20 @@ function AuthCard() {
     const formData = e.target;
     console.log(formData);
     if (isNew) {
-      registerUser({
+      const res = await registerUser({
         username: formData.username.value,
         password: formData.password.value,
       });
+      if(res){
+        console.log("user created successfully")
+      }
     } else {
       const res = await loginUser({
         username: formData.username.value,
         password: formData.password.value,
       });
       if(res.status == 201 || res.status == 200){
-        navigate("/")
+        navigate("/home")
       }
     }
   }

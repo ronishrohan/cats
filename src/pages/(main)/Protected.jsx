@@ -7,8 +7,8 @@ function Protected() {
   const navigate = useNavigate();
   useEffect(() => {
     checkUser(
-      () => redirect("/"),
-      () => redirect("/login")
+      () => navigate("/"),
+      () => navigate("/login")
     );
   }, []);
 
