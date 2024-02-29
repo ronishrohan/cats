@@ -3,6 +3,7 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import { motion } from "framer-motion";
 import registerUser from "../../../../utils/registerUser";
+import loginUser from "../../../../utils/loginUser";
 
 function AuthCard() {
   const [isNew, setIsNew] = useState(false);
@@ -15,9 +16,14 @@ function AuthCard() {
     if (isNew) {
       registerUser({
         username: formData.username.value,
-        email: formData.email.value,
         password: formData.password.value,
       });
+    }
+    else{
+      loginUser({
+        username: formData.username.value,
+        password: formData.password.value
+      })
     }
   }
 
@@ -33,15 +39,17 @@ function AuthCard() {
       </motion.div>
       <form
         onSubmit={handleSubmit}
-        onPointerEnter={() => setHoverd(true)}
-        onPointerLeave={() => setHoverd(false)}
+        onFocus={() => setHoverd(true)}
+        onBlur={() => setHoverd(false)}
         spellCheck={false}
         className="p-4 z-20 bg-card-900 text-primary-900 border-2 border-card-100 rounded-3xl  w-96 flex flex-col gap-4"
       >
         {isNew ? <SignupForm></SignupForm> : <LoginForm></LoginForm>}
         <button
           type="button"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
             setIsNew((prev) => !prev);
           }}
           className="text-primary-900 w-full text-center hover:underline"
