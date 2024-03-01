@@ -7,7 +7,7 @@ function Protected() {
   const navigate = useNavigate();
   useEffect(() => {
     checkUser(
-      () => navigate("/"),
+      () => (null),
       () => navigate("/login")
     );
   }, []);

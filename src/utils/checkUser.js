@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export async function checkUser(onSuccess, onError) {
     
   try {
@@ -5,6 +7,7 @@ export async function checkUser(onSuccess, onError) {
     console.log(res)
     onSuccess();
   } catch (error) {
+    console.log(error)
     onError();
   }
 }
