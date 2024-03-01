@@ -6,13 +6,14 @@ import Profile from "./pages/(main)/profile/page";
 import Posts from "./pages/(main)/posts/page";
 import Protected from "./pages/(main)/Protected";
 import axiosConfig from "./utils/axiosConfig";
+import {SessionProvider} from "./store/sessionContext";
 
 function App() {
   useEffect(() => {
     axiosConfig()
   }, [])
   return (
-    <>
+    <SessionProvider>
       <Routes>
         <Route element={<Protected></Protected>}>
           <Route path="/home" element={<Home></Home>}></Route>
@@ -21,7 +22,7 @@ function App() {
         </Route>
         <Route path="/login" element={<Login></Login>}></Route>
       </Routes>
-    </>
+    </SessionProvider>
   );
 }
 
