@@ -1,6 +1,6 @@
-import axios from "axios";
+import { axiosPrivate } from "./axiosConfig";
 
 export default async function loginUser(data){
-    const res = await axios.post("/api/users/login", data)
+    const res = await axiosPrivate.post("/api/users/login", data)
     return res;
 }

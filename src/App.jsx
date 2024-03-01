@@ -5,13 +5,9 @@ import Home from "./pages/(main)/home/page";
 import Profile from "./pages/(main)/profile/page";
 import Posts from "./pages/(main)/posts/page";
 import Protected from "./pages/(main)/Protected";
-import axiosConfig from "./utils/axiosConfig";
 import {SessionProvider} from "./store/sessionContext";
 
 function App() {
-  useEffect(() => {
-    axiosConfig()
-  }, [])
   return (
     <SessionProvider>
       <Routes>

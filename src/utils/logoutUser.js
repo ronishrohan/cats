@@ -1,5 +1,5 @@
-import axios from "axios";
+import { axiosPrivate } from "./axiosConfig";
 
 export default async function logoutUser(){
-    await axios.post("/api/users/logout");
+    await axiosPrivate.post("/api/users/logout");
 }
